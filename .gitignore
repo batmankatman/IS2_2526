@@ -1,21 +1,4 @@
-# Maven / Java
-target/
-*.class
-*.jar
-*.war
-*.ear
-
-# Logs
-*.log
-
-# IDEs
-.idea/
-*.iml
-.vscode/
-
-# OS
-.DS_Store
-
-# Temporary files
-*.swp
-*.swo
+/*
+!.gitignore
+!/practica2.1/
+!/practica2.1/**
