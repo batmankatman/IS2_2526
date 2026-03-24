@@ -1,7 +1,7 @@
 **Kamon Whiteside**
 
-*Reglas*:
-Pasos iniciales: 1. Crear un repositorio remoto en GitHub, denominado IS2_2526 con un README que contenga el nombre del alumno o alumnos. Si las prácticas se realizan en pareja, se deberá crear un único repositorio remoto. Al finalizar la asignatura, el repositorio deberá contener una carpeta por cada práctica realizada, que contendrá todo el material generado en la misma, tanto código (proyectos Maven) como otro tipo de archivos o artefactos. 2. Invitar al profesor como colaborador (usuario = lopezpaUC) 3. Clonar el repositorio en vuestras máquinas. 4. Se aconseja añadir un fichero .gitignore en la raíz del repositorio. Por cada nueva práctica: • Antes del inicio de la práctica, crear una nueva rama de nombre practicaX (practica2, practica5A, etc.) a partir de la rama main. El desarrollo de cada práctica se realizará en su rama correspondiente. • Una vez en la rama correspondiente, crear una carpeta de nombre PracticaX donde se guardará todo el material de la práctica (proyectos Maven, archivos, etc.) • Realizar una actualización del repositorio remoto con los cambios realizados en la rama al menos una vez al final de cada sesión de prácticas, aunque podéis hacerlo más veces a lo largo de cada sesión o de vuestro trabajo en casa. • Al finalizar la práctica, la rama practicaX deberá fusionarse en la rama main.
- 
-_Instrucciones de Maven_:
-En aquellas prácticas en las que se desarrolle código, deberá utilizarse Maven como herramienta para la construcción de software, de acuerdo a las siguientes reglas: • En todos los proyectos desarrollados el groupID será es.unican.is2. • La organización y nomenclatura de paquetes Java dentro de los proyectos deberá seguir los estándares de estilo de Maven, esto es, deberán recibir un nombre acorde a los valores asignados a las propiedades groupId y artifactId. • Los procesos de compilación, generación de archivos .jar, ejecución de pruebas, etc. deberán ser correctamente ejecutados desde Maven.
+**practica2** - Construción del proyecto Java con Maven
+
+**practica3** - Usa de SonarQube
+
+**practica4** - PdD

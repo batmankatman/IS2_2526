@@ -1,7 +1,7 @@
 /*
 !.gitignore
 !README.md
-!/practica2.1/
-!/practica2.1/**
-
-practica2.1/**/target/
+!/practica2/
+!/practica2/**
+!/practica3/
+!/practica3/**
