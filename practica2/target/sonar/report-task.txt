@@ -1,6 +1,0 @@
-projectKey=seguros-system-practica2
-serverUrl=http://localhost:9000
-serverVersion=26.3.0.120487
-dashboardUrl=http://localhost:9000/dashboard?id=seguros-system-practica2
-ceTaskId=56b57286-9b75-4d43-9c24-7782cb140b16
-ceTaskUrl=http://localhost:9000/api/ce/task?id=56b57286-9b75-4d43-9c24-7782cb140b16
