@@ -1,9 +1,10 @@
 package es.unican.is2.common;
 
+@SuppressWarnings("serial")
 public class OperacionNoValida extends RuntimeException {
 
-    public OperacionNoValida(String message) {
-        super(message);
-    }
+	public OperacionNoValida(String string) {
+		super(string);
+	}
 
 }

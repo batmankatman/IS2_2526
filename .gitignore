@@ -5,6 +5,8 @@
 !/practica2/**
 !/practica3/
 !/practica3/**
+!/practica4/
+!/practica4/**
 
 #to remove build artifacts
 practica2/**/target/

@@ -15,7 +15,7 @@
         <module>SegurosDAOH2</module>
         <module>SegurosBusiness</module>
         <module>SegurosGUI</module>
-        <module>Runner</module>
+        <module>SegurosMain</module>
     </modules>
 
     <properties>

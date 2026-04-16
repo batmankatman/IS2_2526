@@ -1,9 +1,9 @@
 package es.unican.is2.common;
 
 public interface IGestionClientes {
-
-	Cliente nuevoCliente(Cliente c);
-
-	Cliente bajaCliente(String dni);
-
+	
+	public Cliente nuevoCliente(Cliente c) throws DataAccessException;
+	
+	public Cliente bajaCliente(String dni) throws OperacionNoValida, DataAccessException;
+		
 }

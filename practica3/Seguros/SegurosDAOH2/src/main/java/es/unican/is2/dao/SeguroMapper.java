@@ -1,5 +1,36 @@
 package es.unican.is2.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+
+import es.unican.is2.common.Cobertura;
+import es.unican.is2.common.DataAccessException;
+import es.unican.is2.common.Seguro;
+
 public class SeguroMapper {
+
+	public static Seguro toSeguro(ResultSet results) throws DataAccessException {
+
+		Seguro seg = null;
+		try {
+			long id = results.getLong("id");
+			String matricula = results.getString("matricula");
+			LocalDate fecha = results.getDate("fechaInicio").toLocalDate();
+			Cobertura cobertura = Cobertura.valueOf(results.getString("cobertura"));
+			int potencia = Integer.valueOf(results.getString("potencia"));
+			String conductorAdicional = results.getString("conductorAdicional");
+			seg = new Seguro();
+			seg.setMatricula(matricula);
+			seg.setCobertura(cobertura);	
+			seg.setPotencia(potencia);
+			seg.setConductorAdicional(conductorAdicional);
+			seg.setFechaInicio(fecha);
+			seg.setId(id);
+			return seg;
+		} catch (SQLException e) {
+			throw new DataAccessException();
+		}
+	}
 
 }

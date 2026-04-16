@@ -1,17 +1,18 @@
 package es.unican.is2.common;
 
-public interface ISegurosDAO {
+import java.util.List;
 
-	Seguro[] seguros();
+public interface ISegurosDAO  {
+	
+	public Seguro creaSeguro(Seguro v) throws DataAccessException;
+	
+	public Seguro eliminaSeguro(long id) throws DataAccessException;
+	
+	public Seguro actualizaSeguro(Seguro nuevo) throws DataAccessException;
+	
+	public Seguro seguro(long id) throws DataAccessException;
 
-	Seguro seguro(long id);
-
-	Seguro creaSeguro(Seguro s);
-
-	Seguro actualizaSeguro(Seguro nuevo);
-
-	Seguro eliminaSeguro(long id);
-
-	Seguro seguroPorMatricula(String matricula);
-
+	public Seguro seguroPorMatricula(String matricula) throws DataAccessException;
+	
+	public List<Seguro> seguros() throws DataAccessException;
 }

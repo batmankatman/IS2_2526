@@ -1,15 +1,17 @@
 package es.unican.is2.common;
 
-public interface IClientesDAO {
+import java.util.List;
 
-	Cliente[] clientes();
-
-	Cliente cliente(String dni);
-
-	Cliente creaCliente(Cliente c);
-
-	Cliente actualizaCliente(Cliente nuevo);
-
-	Cliente eliminaCliente(String dni);
-
+public interface IClientesDAO  {
+	
+	public Cliente creaCliente(Cliente c) throws DataAccessException;
+	
+	public Cliente cliente(String dni) throws DataAccessException;
+	
+	public Cliente actualizaCliente(Cliente nuevo) throws DataAccessException;
+	
+	public Cliente eliminaCliente(String dni) throws DataAccessException;
+	
+	public List<Cliente> clientes() throws DataAccessException;
+	
 }

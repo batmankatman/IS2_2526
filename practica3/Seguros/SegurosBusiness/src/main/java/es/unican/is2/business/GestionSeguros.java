@@ -1,49 +1,58 @@
 package es.unican.is2.business;
 
+import es.unican.is2.common.Cliente;
+import es.unican.is2.common.DataAccessException;
 import es.unican.is2.common.IClientesDAO;
 import es.unican.is2.common.IGestionClientes;
 import es.unican.is2.common.IGestionSeguros;
 import es.unican.is2.common.IInfoSeguros;
 import es.unican.is2.common.ISegurosDAO;
-import es.unican.is2.common.Cliente;
+import es.unican.is2.common.OperacionNoValida;
 import es.unican.is2.common.Seguro;
 
 public class GestionSeguros implements IGestionClientes, IGestionSeguros, IInfoSeguros {
 
-    private IClientesDAO clientesDAO;
-    private ISegurosDAO segurosDAO;
+	private IClientesDAO clientesDAO;
+	private ISegurosDAO segurosDAO;
 
-    public GestionSeguros(IClientesDAO clientesDAO, ISegurosDAO segurosDAO) {
-        this.clientesDAO = clientesDAO;
-        this.segurosDAO = segurosDAO;
-    }
+	public GestionSeguros(IClientesDAO clientesDAO, ISegurosDAO segurosDAO) {
+		this.clientesDAO = clientesDAO;
+		this.segurosDAO = segurosDAO;
+	}
 
-    public Cliente nuevoCliente(Cliente c) {
-        return null;
-    }
+	@Override
+	public Cliente nuevoCliente(Cliente c) throws DataAccessException {
+		return null;
+	}
 
-    public Cliente bajaCliente(String dni) {
-        return null;
-    }
+	@Override
+	public Cliente bajaCliente(String dni) throws OperacionNoValida, DataAccessException {
+		return null;
+	}
 
-    public Seguro nuevoSeguro(Seguro s, String dni) {
-        return null;
-    }
+	@Override
+	public Seguro nuevoSeguro(Seguro s, String dni) throws OperacionNoValida, DataAccessException {
+		return null;
+	}
 
-    public Seguro bajaSeguro(String matricula, String dni) {
-        return null;
-    }
+	@Override
+	public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException {
+		return null;
+	}
 
-    public Seguro anadeConductorAdicional(String matricula, String conductor) {
-        return null;
-    }
+	@Override
+	public Seguro anhadeConductorAdicional(String matricula, String conductor) throws DataAccessException {
+		return null;
+	}
 
-    public Cliente cliente(String dni) {
-        return null;
-    }
+	@Override
+	public Cliente cliente(String dni) throws DataAccessException {
+		return null;
+	}
 
-    public Seguro seguro(String matricula) {
-        return null;
-    }
+	@Override
+	public Seguro seguro(String matricula) throws DataAccessException {
+		return null;
+	}
 
 }

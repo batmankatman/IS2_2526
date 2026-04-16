@@ -1,11 +1,11 @@
 package es.unican.is2.common;
 
 public interface IGestionSeguros {
+	
+	public Seguro nuevoSeguro(Seguro s, String dni) throws OperacionNoValida, DataAccessException;
+	
+	public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException;
 
-	Seguro nuevoSeguro(Seguro s, String dni);
-
-	Seguro bajaSeguro(String matricula, String dni);
-
-	Seguro anadeConductorAdicional(String matricula, String conductor);
+	public Seguro anhadeConductorAdicional(String matricula, String conductor) throws DataAccessException;
 
 }

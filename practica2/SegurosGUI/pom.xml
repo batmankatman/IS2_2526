@@ -20,11 +20,6 @@
       <artifactId>seguros-common</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>es.unican.is2</groupId>
-      <artifactId>seguros-business</artifactId>
-      <version>${project.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
