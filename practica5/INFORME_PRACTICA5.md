@@ -1,47 +1,40 @@
-**Informe de la práctica 5A**
+## Informe Práctica 5A
 
-*Pruebas unitarias y de integración del proyecto Seguros*
+Pruebas unitarias y de integración del proyecto Seguros.
 
----
+### Fase 1: Pruebas unitarias de las clases del dominio
 
-**Fase 1: Pruebas unitarias de las clases del dominio**
+Se prueban los métodos `precio()` (clase `Seguro`) y `totalSeguros()` (clase `Cliente`). Los métodos get/set quedan excluidos.
 
-Se prueban los métodos `precio()` (clase `Seguro`) y `totalSeguros()` (clase `Cliente`). Los métodos *get/set* quedan excluidos.
+**Caja negra** (partición equivalente y análisis de valores límite)
 
-*Caja negra — partición equivalente y AVL*
+Para `Seguro.precio()` se definieron particiones por tipo de cobertura (TERCEROS, TERCEROS_LUNAS, TODO_RIESGO), por conductor adicional (con valor, null, cadena vacía) y valores límite de potencia (0, 1, valor alto). Resultado: 12 casos de prueba en `SeguroTest`.
 
-Para `Seguro.precio()`: particiones por tipo de cobertura (TERCEROS, TERCEROS_LUNAS, TODO_RIESGO), por conductor adicional (con valor, null, cadena vacía) y valores límite de potencia (0, 1, valor alto). Total: **12 casos** en `SeguroTest`.
+Para `Cliente.totalSeguros()` se contemplaron los casos de cliente sin seguros, con un seguro, con varios seguros, con minusvalía con y sin seguros, y con conductor adicional. Resultado: 7 casos en `ClienteTest`.
 
-Para `Cliente.totalSeguros()`: cliente sin seguros, con un seguro, con varios seguros, con minusvalía (con y sin seguros), con conductor adicional. Total: **7 casos** en `ClienteTest`.
+**Caja blanca** (cobertura de decisión/condición y sentencias)
 
-*Caja blanca — cobertura de decisión/condición y sentencias*
+Los casos diseñados en caja negra ya alcanzan cobertura completa: todas las ramas del switch de cobertura, ambas ramas del conductor adicional, el bucle del for con 0, 1 y N iteraciones, y ambas ramas de la condición de minusvalía.
 
-Los casos de caja negra ya alcanzan cobertura completa: todas las ramas del switch de cobertura, ambas ramas del conductor adicional, el bucle del for (0, 1 y N iteraciones) y ambas ramas de la condición de minusvalía.
+### Fase 2: Pruebas de integración de VistaAgente
 
----
+Las pruebas se encuentran en `VistaAgenteIT` y se ejecutan en la fase `verify` de Maven mediante el plugin maven-failsafe. La base de datos H2 en memoria se inicializa con los datos de prueba antes de cada test.
 
-**Fase 2: Pruebas de integración de VistaAgente**
+**Casos de prueba (caja negra)**
 
-Clase: `VistaAgenteIT`, ejecutada en la fase `verify` de Maven con *maven-failsafe-plugin*. La BD H2 en memoria se inicializa con los datos de la Tabla 1.
+1. DNI 11111111A (Juan, 3 seguros) → nombre Juan, total 272.5
+2. DNI 22222222A (Ana, 1 seguro) → nombre Ana, total 45.0
+3. DNI 33333333A (Luis, minusvalía, 0 seguros) → nombre Luis, total 0.0
+4. DNI 44444444A (Pepe, 2 seguros) → nombre Pepe, total 600.0
+5. DNI inexistente → se muestra mensaje de error
+6. DNI vacío → se muestra mensaje de error
 
-*Caja negra — 6 casos de prueba:*
+**Caja blanca:** los 6 casos cubren todas las ramas de `rellenaDatosCliente()` (cliente encontrado, cliente no encontrado y excepción de acceso a datos).
 
-| # | Entrada | Resultado esperado |
-|---|---------|-------------------|
-| 1 | 11111111A (Juan, 3 seguros) | nombre=Juan, total=272.5 |
-| 2 | 22222222A (Ana, 1 seguro) | nombre=Ana, total=45.0 |
-| 3 | 33333333A (Luis, minusvalía, 0 seguros) | nombre=Luis, total=0.0 |
-| 4 | 44444444A (Pepe, 2 seguros) | nombre=Pepe, total=600.0 |
-| 5 | DNI inexistente | mensaje de error |
-| 6 | DNI vacío | mensaje de error |
+### Defectos encontrados
 
-*Caja blanca:* los 6 casos cubren todas las ramas de `rellenaDatosCliente()` (cliente encontrado, no encontrado, excepción).
+En `VistaAgente.rellenaDatosCliente()` el botón Buscar leía `txtNombreCliente.getText()` en lugar de `txtDniCliente.getText()`. Se corrigió durante el proceso de pruebas.
 
----
+Además, al comenzar la práctica varios métodos eran stubs sin implementar: `Seguro.precio()`, `Cliente.totalSeguros()`, `GestionSeguros.cliente()` y `GestionSeguros.seguro()`. Todos fueron implementados.
 
-**Defectos encontrados**
-
-- `VistaAgente.rellenaDatosCliente()`: el botón *Buscar* leía `txtNombreCliente.getText()` en lugar de `txtDniCliente.getText()`. Corregido.
-- Stubs implementados: `Seguro.precio()`, `Cliente.totalSeguros()`, `GestionSeguros.cliente()`, `GestionSeguros.seguro()`.
-
-He usado Claude IA por ayuda en este proyecto.
+*He sido ayudado por Claude IA en este proyecto.*
