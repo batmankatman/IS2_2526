@@ -1,7 +1,5 @@
 **Informe de la práctica 4**
 
-*Planificación del proyecto Seguros*
-
 **Estimación con UCP**
 
 Para la estimación se han considerado dos actores: el *agente de seguros* y el *cliente*. Ambos se clasifican como actores medios, con peso 2, por lo que el valor de **UAW** es:
@@ -17,7 +15,7 @@ De ahí sale el siguiente cálculo:
 
 **Factores técnicos**
 
-La aplicación no es distribuida, ya que se trata de una aplicación de escritorio con base de datos H2 local. El tiempo de respuesta requerido es razonable, pero no de tiempo real. La eficiencia de uso se ha valorado de forma positiva porque la interfaz está pensada para una gestión cotidiana sencilla. El procesamiento no es especialmente complejo, aunque sí hay validaciones y acceso a datos. También se ha tenido en cuenta la reutilización gracias al módulo *SegurosCommon*, la facilidad de instalación por usar Maven y H2 embebido, y la portabilidad de Java.
+La eficiencia de uso se ha valorado de forma positiva porque la interfaz está pensada para una gestión cotidiana sencilla. El procesamiento no es especialmente complejo, aunque sí hay validaciones y acceso a datos. También se ha tenido en cuenta la reutilización gracias al módulo *SegurosCommon*, la facilidad de instalación por usar Maven y H2 embebido, y la portabilidad de Java.
 
 Otros aspectos, como la concurrencia o el acceso de terceros, tienen poco impacto en este proyecto. En conjunto, la suma de factores técnicos es **26.0**, por lo que:
 
@@ -25,7 +23,7 @@ Otros aspectos, como la concurrencia o el acceso de terceros, tienen poco impact
 
 **Factores ambientales**
 
-Se ha supuesto un equipo formado por *ingenieros recién graduados*, con buena motivación pero todavía poca experiencia práctica. Eso reduce la familiaridad con el proceso, con el dominio del problema y con el análisis, aunque la motivación es alta y los requisitos son bastante estables porque vienen fijados por el enunciado.
+Se ha supuesto un equipo formado xomo *ingenieros recién graduados*, con buena motivación pero todavía poca experiencia práctica. Eso reduce la familiaridad con el proceso, con el dominio del problema y con el análisis, aunque la motivación es alta y los requisitos son bastante estables porque vienen fijados por el enunciado.
 
 La suma de factores ambientales es **17.0**, así que:
 
@@ -51,7 +49,7 @@ Tomando la implementación como el 40% del esfuerzo total:
 
 **Coste por hora**
 
-Para calcular el coste horario se ha usado la plantilla *Plantilla-calculo-hora-trabajador.xlsx*. Se parte de 240 días laborables al año, a los que se restan 25 días de vacaciones, 5 de formación y 10 festivos. Después se aplica un factor del 80%, con lo que quedan **160 días cargables**, equivalentes a **1280 horas al año**.
+Basado en *Plantilla-calculo-hora-trabajador.xlsx*, después se aplica un factor del 80%, con lo que quedan **160 días cargables**, equivalentes a **1280 horas al año**.
 
 El coste anual por trabajador se ha estimado así:
 
@@ -93,13 +91,3 @@ Además, en el diagrama de Gantt se han incluido varios elementos pedidos en la 
 - Disponibilidad variable para *Pedro Martínez*: **100% de septiembre a noviembre** y **200% de diciembre a enero**.
 - Coste variable para *María Fernández*: **48 EUR/h**, que pasa a **52 EUR/h** desde enero de 2027.
 - Coste específico por tarea para *Ana García*: **45 EUR/h** en general y **35 EUR/h** en tareas de GUI.
-
-**Validación de la planificación**
-
-Durante la revisión se detectó una sobreasignación de *María Fernández*, que aparecía al **200%** en tareas solapadas por una relación de tipo *CC*. Para corregirlo, se sustituyó su participación en *Diseño detallado* por *Pedro Martínez*.
-
-Con esa corrección, la planificación queda consistente. Las estadísticas finales de coste y duración pueden consultarse en ProjectLibre desde la opción *Vista > Informe*.
-
-**Fichero entregado**
-
-El fichero del proyecto es **Seguros_Project.xml**. Para abrirlo en ProjectLibre, basta con cargarlo y, si se desea, guardarlo después en formato *.pod*.

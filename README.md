@@ -4,4 +4,6 @@
 
 **practica3** - Usa de SonarQube
 
-**practica4** - PdD
+**practica4** - Planificación del proyecto Seguros
+
+**practica5** - Pruebas de Software
