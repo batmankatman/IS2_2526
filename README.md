@@ -7,3 +7,5 @@
 **practica4** - Planificación del proyecto Seguros
 
 **practica5** - Pruebas de Software
+
+**practica6** - Integración Continua
