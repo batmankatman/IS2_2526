@@ -3,13 +3,10 @@ import es.unican.is2.franquiciasuccommon.*;
 import es.unican.is2.franquiciasucbusiness.*;
 import es.unican.is2.franquiciasucdao.*;
 import es.unican.is2.franquiciasucgui.*;
-import es.unican.is2.franquiciasucbusiness.*;
-import es.unican.is2.franquiciasucdao.*;
-import es.unican.is2.franquiciasucgui.*;
 
 
 /**
- * Clase principal que construye la aplicación de tres capas y lanza su ejecución
+ * Clase principal que construye la aplicaciÃ³n de tres capas y lanza su ejecuciÃ³n
  */
 public class Runner {
 
@@ -25,7 +22,7 @@ public class Runner {
 		// Crear componentes capa presentacion
 		VistaGerente vista = new VistaGerente(gTiendas, gEmpleados);
 		
-		// Lanzar ejecución (hacer visible la interfaz)
+		// Lanzar ejecuciÃ³n (hacer visible la interfaz)
 		vista.setVisible(true);
 		
 	
