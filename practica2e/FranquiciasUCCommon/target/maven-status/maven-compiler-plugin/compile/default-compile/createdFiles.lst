@@ -1,0 +1,11 @@
+es/unican/is2/franquiciasuccommon/Empleado$1.class
+es/unican/is2/franquiciasuccommon/IGestionTiendas.class
+es/unican/is2/franquiciasuccommon/DataAccessException.class
+es/unican/is2/franquiciasuccommon/IGestionAltasBajas.class
+es/unican/is2/franquiciasuccommon/IGestionEmpleados.class
+es/unican/is2/franquiciasuccommon/Categoria.class
+es/unican/is2/franquiciasuccommon/ITiendasDAO.class
+es/unican/is2/franquiciasuccommon/Empleado.class
+es/unican/is2/franquiciasuccommon/Tienda.class
+es/unican/is2/franquiciasuccommon/OperacionNoValidaException.class
+es/unican/is2/franquiciasuccommon/IEmpleadosDAO.class
