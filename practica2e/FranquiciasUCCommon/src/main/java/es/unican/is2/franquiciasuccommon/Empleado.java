@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package es.unican.is2.franquiciasuccommon;
-=======
-package es.unican.is2.franquiciasuccommon;
->>>>>>> practica2e
 
 
 import java.time.LocalDate;
@@ -149,9 +145,6 @@ public double sueldoBruto() {
 		this.categoria = categoria;
 	}
 	
-<<<<<<< HEAD
-}
-=======
         @Override
         public int hashCode() {
                 final int prime = 31;
@@ -178,4 +171,3 @@ public double sueldoBruto() {
         }
 
 }
->>>>>>> practica2e

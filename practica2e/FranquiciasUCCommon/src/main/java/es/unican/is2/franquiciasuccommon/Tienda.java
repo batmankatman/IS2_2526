@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package es.unican.is2.franquiciasuccommon;
-=======
-package es.unican.is2.franquiciasuccommon;
->>>>>>> practica2e
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -102,9 +98,6 @@ public class Tienda implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-<<<<<<< HEAD
-}
-=======
 
         @Override
         public int hashCode() {
@@ -131,4 +124,3 @@ public class Tienda implements Serializable {
                 return true;
         }
 }
->>>>>>> practica2e
