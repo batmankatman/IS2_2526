@@ -12,6 +12,9 @@ public class GestionTiendas implements IGestionTiendas {
 
     @Override
     public Tienda nuevaTienda(Tienda c) throws DataAccessException {
+        if (tiendasDAO.tiendaPorNombre(c.getNombre()) != null) {
+            return null;
+        }
         return tiendasDAO.crearTienda(c);
     }
 

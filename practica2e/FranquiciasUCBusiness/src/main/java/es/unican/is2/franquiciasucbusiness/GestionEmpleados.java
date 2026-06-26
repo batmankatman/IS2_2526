@@ -37,6 +37,10 @@ public class GestionEmpleados implements IGestionEmpleados, IGestionAltasBajas {
         if (e == null) {
             return null;
         }
+        // Verificar que pertenece a la tienda
+        if (t.buscaEmpleado(dni) == null) {
+            throw new OperacionNoValidaException("El empleado no pertenece a la tienda indicada");
+        }
         empleadosDAO.eliminarEmpleado(dni);
         t.getEmpleados().remove(e);
         tiendasDAO.modificarTienda(t);
@@ -54,6 +58,11 @@ public class GestionEmpleados implements IGestionEmpleados, IGestionAltasBajas {
         Empleado e = empleadosDAO.empleado(dni);
         if (e == null) {
             throw new OperacionNoValidaException("Empleado no existe");
+        }
+        
+        // Verificar que el empleado pertenece a la tienda actual
+        if (tActual.buscaEmpleado(dni) == null) {
+            throw new OperacionNoValidaException("El empleado no pertenece a la tienda actual");
         }
         
         tActual.getEmpleados().remove(e);
