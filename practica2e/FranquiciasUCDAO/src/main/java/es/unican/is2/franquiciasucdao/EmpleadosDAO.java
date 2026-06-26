@@ -68,14 +68,27 @@ public class EmpleadosDAO implements IEmpleadosDAO {
 	
 	
 	public Empleado eliminarEmpleado(String dni) throws DataAccessException {
-		// TODO
-		return null;					
-	}
+                Empleado e = empleado(dni);
+                if (e != null) {
+                        String statementText = String.format("delete from empleado where dni = '%s'", dni);
+                        H2ServerConnectionManager.executeSqlStatement(statementText);
+                }
+                return e;
+        }
 
-	public Empleado modificarEmpleado(Empleado nuevo) throws DataAccessException {
-		// TODO
-		return null;
-	}
+        public Empleado modificarEmpleado(Empleado nuevo) throws DataAccessException {
+                Empleado e = empleado(nuevo.getDNI());
+                if (e != null) {
+                        String updateStatement = String.format(
+                                        "update Empleado set fechaContratacion = '%s', baja = %b, nombre = '%s', categoria = '%s' where dni = '%s'",
+                                        nuevo.getFechaContratacion().toString(),
+                                        nuevo.getBaja(),
+                                        nuevo.getNombre(),
+                                        nuevo.getCategoria().toString(),
+                                        nuevo.getDNI());
+                        H2ServerConnectionManager.executeSqlStatement(updateStatement);
+                }
+                return e;
 	
 	
 }
