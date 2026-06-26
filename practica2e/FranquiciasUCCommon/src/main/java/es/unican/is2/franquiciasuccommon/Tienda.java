@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package es.unican.is2.franquiciasuccommon;
+=======
+package es.unican.is2.franquiciasuccommon;
+>>>>>>> practica2e
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -98,4 +102,33 @@ public class Tienda implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
+<<<<<<< HEAD
 }
+=======
+
+        @Override
+        public int hashCode() {
+                final int prime = 31;
+                int result = 1;
+                result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+                return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+                if (this == obj)
+                        return true;
+                if (obj == null)
+                        return false;
+                if (getClass() != obj.getClass())
+                        return false;
+                Tienda other = (Tienda) obj;
+                if (nombre == null) {
+                        if (other.nombre != null)
+                                return false;
+                } else if (!nombre.equals(other.nombre))
+                        return false;
+                return true;
+        }
+}
+>>>>>>> practica2e
