@@ -1,0 +1,70 @@
+package es.unican.is2.gui;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+
+import es.unican.is2.business.GestionSeguros;
+import es.unican.is2.common.Cliente;
+import es.unican.is2.common.Seguro;
+import es.unican.is2.common.Cobertura;
+import es.unican.is2.dao.ClientesDAO;
+import es.unican.is2.dao.SegurosDAO;
+import es.unican.is2.common.DataAccessException;
+import es.unican.is2.common.OperacionNoValida;
+
+class VistaAgenteIT {
+
+    private FrameFixture window;
+    private ClientesDAO clientesDAO;
+
+    @BeforeAll
+    static void setUpOnce() {
+        FailOnThreadViolationRepaintManager.install();
+    }
+
+    @BeforeEach
+    void setUp() throws Exception {
+        clientesDAO = new ClientesDAO();
+        SegurosDAO segurosDAO = new SegurosDAO();
+        GestionSeguros gestionSeguros = new GestionSeguros(clientesDAO, segurosDAO);
+
+        VistaAgente frame = GuiActionRunner.execute(() -> new VistaAgente(gestionSeguros, gestionSeguros, gestionSeguros));
+        window = new FrameFixture(frame);
+        window.show();
+    }
+
+    @AfterEach
+    void tearDown() {
+        window.cleanUp();
+    }
+
+    @Test
+    void testBusquedaValida() throws DataAccessException, OperacionNoValida {
+        window.textBox("txtDNICliente").enterText("11111111A");
+        window.button("btnBuscar").click();
+        
+        Cliente c = clientesDAO.cliente("11111111A");
+        double expectedTotal = 0;
+        for (Seguro s : c.getSeguros()) {
+            expectedTotal += s.precio();
+        }
+
+        window.textBox("txtNombreCliente").requireText("Juan");
+        window.textBox("txtTotalCliente").requireText(String.valueOf(expectedTotal));
+    }
+
+    @Test
+    void testBusquedaInvalida() {
+        window.textBox("txtDNICliente").enterText("44444444A");
+        window.button("btnBuscar").click();
+
+        window.textBox("txtNombreCliente").requireText("Pepe");
+    }
+}

@@ -3,18 +3,24 @@
 !README.md
 !/practica2/
 !/practica2/**
+!/practica2e/
+!/practica2e/**
 !/practica3/
 !/practica3/**
 !/practica4/
 !/practica4/**
 !/practica5/
 !/practica5/**
+!/practica5e/
+!/practica5e/**
 !/practica6/
 !/practica6/**
 
 #to remove build artifacts
 practica2/**/target/
+practica2e/**/target/
 practica3/**/target/
 practica4/**/target/
 practica5/**/target/
+practica5e/**/target/
 practica6/**/target/

@@ -1,0 +1,57 @@
+package es.unican.is2.gui;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+
+import es.unican.is2.common.Cobertura;
+import es.unican.is2.gui.VistaAgente;
+import es.unican.is2.business.GestionSeguros;
+import es.unican.is2.business.GestionClientes;
+import es.unican.is2.dao.ClientesDAO;
+import es.unican.is2.dao.SegurosDAO;
+
+
+class VistaAgenteIT {
+	
+	private FrameFixture window;
+
+	@BeforeAll
+	static void setUpOnce() {
+		FailOnThreadViolationRepaintManager.install();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		ClientesDAO clientesDAO = new ClientesDAO();
+		SegurosDAO segurosDAO = new SegurosDAO();
+		GestionSeguros gestionSeguros = new GestionSeguros(segurosDAO, clientesDAO);
+		GestionClientes gestionClientes = new GestionClientes(clientesDAO);
+		
+		VistaAgente frame = GuiActionRunner.execute(() -> new VistaAgente(gestionSeguros, gestionClientes));
+		window = new FrameFixture(frame);
+		window.show();
+	}
+	
+	@AfterEach
+	void tearDown() {
+		window.cleanUp();
+	}
+
+	@Test
+	void test() {
+		window.textBox("txtDNI").enterText("11111111A");
+		window.button("btnBuscar").click();
+		
+		assertEquals("Juan", window.textBox("txtNombre").text());
+	}
+
+}
